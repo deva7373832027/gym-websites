@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0; 
+    font-family: 'courier new', courier, monospace;
+    color: white;
+    background: url('../images/thumb-1920-1300550.jpg') ;
+    background-size: 135%;
+    background-repeat: no-repeat;
+    
+}
+ ::selection{
+            background-color:rgb(223, 23, 130);
+        }
+.left{
+   
+    position: absolute;
+    display: inline-block;
+    top: 0%;
+    left: 0%;
+}
+.left img{
+    width:100px;
+    
+}
+.left div{
+    background-color: black;
+    line-height: 10px;
+    font-size: 8px;
+    text-align: center;
+    margin: 1px;
+    padding:6px;
+    
+    
+    
+}
+.mid{
+   display:block; 
+   width:60%;
+   margin: 30px auto;
+}
+.navbar{
+    display:inline-block;
+}
+.navbar li{
+    display:inline-block;
+     font-size:25px;
+}
+.navbar li a{
+    color:white;
+    text-decoration: none;
+    padding: 14px 12px;
+}
+.navbar li a:hover,.navbar li a.active{
+    text-decoration:underline;
+    color:black;
+}
+.right{
+    position:absolute;
+    right:30px;
+    top:40px;
+    display:inline-block;
+}
+.btn{
+    margin: 0px 9px;
+    background-color: black;
+    color:white;
+    padding:5px 10px;
+    border:2px solid gray;
+    border-radius:25px;
+    font-size:20px;
+    cursor:pointer;
+}
+.btn:hover{
+    background-color: white;
+    color:black;
+}
+.container{
+    border: 2px solid white;
+    margin:100px 300px;
+    padding: 70px;
+    width:40%;
+    border-radius:5px;
+}
+.form-group input{
+    text-align:center;
+    justify-content: center;
+    display: block ;
+    width:300px;
+    padding: 5px;
+    border: 2px solid black;
+    margin:10px auto;
+    font-size:25px;
+    border-radius: 5px;
+}
+input:hover{
+   
+    background-color: rgb(98, 88, 88);
+}
+.container h1{
+    text-align: center;
+    font-size: 30px;
+}
+.container button{
+    display:block;
+    margin:10px auto;
+    width:300px;
+    padding:5px;
+    border:2px solid black;
+}
