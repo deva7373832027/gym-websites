@@ -5,28 +5,575 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>IRONCORE | Premium Fitness</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>IRONCORE | Premium Gym</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --orange: #ff652f;
+            --black: #101010;
+            --dark: #191919;
+            --white: #ffffff;
+            --gray: #aaaaaa;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            background: var(--orange);
+            color: #111;
+            font-size: 12px;
+            font-weight: 800;
+            border: 1px solid var(--orange);
+            border-radius: 3px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: #555;
+        }
+
+        .subtitle {
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            padding: 100px 8%;
+        }
+
+        /* HEADER */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 8%;
+            background: #101010;
+            border-bottom: 1px solid #292929;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        /* HERO SECTION */
+
+        .home {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background:
+                linear-gradient(90deg, #101010 0%, rgba(16,16,16,.88) 45%, rgba(16,16,16,.2) 100%),
+                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85") center/cover;
+        }
+
+        .home-content {
+            max-width: 650px;
+        }
+
+        .home h1 {
+            font-size: clamp(45px, 7vw, 85px);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -3px;
+            margin: 20px 0;
+        }
+
+        .home h1 span {
+            color: var(--orange);
+        }
+
+        .description {
+            max-width: 470px;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .home-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .stats {
+            display: flex;
+            gap: 45px;
+            flex-wrap: wrap;
+            margin-top: 55px;
+        }
+
+        .stats h2 {
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .stats h2 span {
+            color: var(--orange);
+        }
+
+        .stats p {
+            color: var(--gray);
+            font-size: 11px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 420px;
+            border-left: 5px solid var(--orange);
+            border-radius: 5px;
+            background: url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1000&q=85") center/cover;
+        }
+
+        .about-content h2,
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span,
+        .section-heading h2 span {
+            color: var(--orange);
+        }
+
+        .about-content > p:not(.subtitle) {
+            color: var(--gray);
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .features div::first-letter {
+            color: var(--orange);
+        }
+
+        /* SECTION HEADING */
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading > p:last-child {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* PROGRAMS */
+
+        .programs {
+            background: #151515;
+        }
+
+        .program-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .program-card {
+            background: #202020;
+            border: 1px solid #303030;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--orange);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .program-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content span {
+            color: var(--orange);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .card-content h3 {
+            font-size: 20px;
+            margin: 12px 0;
+        }
+
+        .card-content p {
+            color: var(--gray);
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card-content a {
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 100px 8%;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.88)),
+                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=85") center/cover;
+        }
+
+        .cta h2 {
+            font-size: clamp(35px, 5vw, 58px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .cta h2 span {
+            color: var(--orange);
+        }
+
+        .cta p:not(.subtitle) {
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        /* PRICING */
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .price-card {
+            background: var(--dark);
+            border: 1px solid #333;
+            padding: 35px 25px;
+            transition: 0.3s;
+        }
+
+        .price-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+        }
+
+        .price-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .price-card h2 {
+            font-size: 29px;
+            margin-bottom: 25px;
+        }
+
+        .price-card h2 span {
+            color: var(--gray);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .price-card p {
+            color: #ccc;
+            font-size: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .price-card .btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .popular {
+            border-color: var(--orange);
+        }
+
+        .popular-tag {
+            display: inline-block;
+            background: var(--orange);
+            color: #111;
+            padding: 5px 10px;
+            font-size: 10px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .price-note {
+            color: var(--gray);
+            font-size: 11px;
+            margin-top: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #151515;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: #101010;
+            border: 1px solid #333;
+            color: white;
+            font-family: inherit;
+            font-size: 13px;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--orange);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            align-self: flex-start;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 45px 8% 20px;
+            text-align: center;
+            background: #0b0b0b;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 12px;
+            margin: 15px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+            padding-top: 20px;
+            margin-top: 25px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 1000px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .program-container,
+            .pricing-container {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .section {
+                padding: 65px 6%;
+            }
+
+            header {
+                padding: 20px 5%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .home {
+                min-height: 600px;
+                padding: 65px 6%;
+                background-position: 60% center;
+            }
+
+            .home h1 {
+                font-size: 48px;
+                letter-spacing: -2px;
+            }
+
+            .stats {
+                gap: 25px;
+                margin-top: 40px;
+            }
+
+            .stats h2 {
+                font-size: 24px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 300px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .program-container,
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card img {
+                height: 250px;
+            }
+
+            .cta {
+                padding: 75px 6%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- HEADER -->
 
-    <header class="header">
+    <header>
+        <a href="#home" class="logo">IRON<span>CORE.</span></a>
 
-        <a href="#" class="logo">
-            IRON<span>CORE.</span>
-        </a>
-
-        <nav class="navbar">
+        <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#programs">Programs</a>
@@ -34,15 +581,13 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <a href="#pricing" class="btn">Join Now ↗</a>
-
+        <a href="#pricing" class="btn">JOIN NOW ↗</a>
     </header>
 
 
-    <!-- HOME SECTION -->
+    <!-- HOME -->
 
     <section class="home" id="home">
-
         <div class="home-content">
 
             <p class="subtitle">NO EXCUSES. JUST RESULTS.</p>
@@ -59,15 +604,11 @@
             </p>
 
             <div class="home-buttons">
-                <a href="#programs" class="btn">Explore Programs ↗</a>
-
-                <a href="#about" class="btn btn-outline">
-                    Discover More
-                </a>
+                <a href="#programs" class="btn">EXPLORE PROGRAMS ↗</a>
+                <a href="#about" class="btn btn-outline">DISCOVER MORE</a>
             </div>
 
             <div class="stats">
-
                 <div>
                     <h2>500<span>+</span></h2>
                     <p>Happy Members</p>
@@ -82,15 +623,13 @@
                     <h2>10<span>+</span></h2>
                     <p>Years Experience</p>
                 </div>
-
             </div>
 
         </div>
-
     </section>
 
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
 
     <section class="about section" id="about">
 
@@ -113,52 +652,37 @@
             </p>
 
             <div class="features">
-
                 <div>✓ Professional Trainers</div>
                 <div>✓ Modern Equipment</div>
                 <div>✓ Personal Workout Plans</div>
                 <div>✓ Friendly Environment</div>
-
             </div>
 
-            <a href="#contact" class="btn">Know More ↗</a>
+            <a href="#contact" class="btn">KNOW MORE ↗</a>
 
         </div>
-
     </section>
 
 
-    <!-- PROGRAMS SECTION -->
+    <!-- PROGRAMS -->
 
     <section class="programs section" id="programs">
 
         <div class="section-heading">
-
             <p class="subtitle">OUR PROGRAMS</p>
 
-            <h2>
-                FIND YOUR <span>STRENGTH.</span>
-            </h2>
+            <h2>FIND YOUR <span>STRENGTH.</span></h2>
 
-            <p>
-                Choose your program and start your fitness journey.
-            </p>
-
+            <p>Choose your program and start your fitness journey.</p>
         </div>
-
 
         <div class="program-container">
 
             <div class="program-card">
-
-                <img
-                src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80"
-                alt="Weight training">
+                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80" alt="Weight training">
 
                 <div class="card-content">
-
                     <span>01 / STRENGTH</span>
-
                     <h3>Weight Training</h3>
 
                     <p>
@@ -167,22 +691,14 @@
                     </p>
 
                     <a href="#contact">Explore Program ↗</a>
-
                 </div>
-
             </div>
 
-
             <div class="program-card">
-
-                <img
-                src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=700&q=80"
-                alt="Cardio workout">
+                <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=700&q=80" alt="Cardio training">
 
                 <div class="card-content">
-
                     <span>02 / ENDURANCE</span>
-
                     <h3>Cardio Training</h3>
 
                     <p>
@@ -191,22 +707,14 @@
                     </p>
 
                     <a href="#contact">Explore Program ↗</a>
-
                 </div>
-
             </div>
 
-
             <div class="program-card">
-
-                <img
-                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80"
-                alt="Functional fitness">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Functional fitness">
 
                 <div class="card-content">
-
                     <span>03 / MOVEMENT</span>
-
                     <h3>Functional Fitness</h3>
 
                     <p>
@@ -215,13 +723,10 @@
                     </p>
 
                     <a href="#contact">Explore Program ↗</a>
-
                 </div>
-
             </div>
 
         </div>
-
     </section>
 
 
@@ -236,111 +741,81 @@
             <span>WORK FOR IT.</span>
         </h2>
 
-        <p>
-            Start today. Stay consistent. See your progress.
-        </p>
+        <p>Start today. Stay consistent. See your progress.</p>
 
-        <a href="#pricing" class="btn">Start Your Journey ↗</a>
+        <a href="#pricing" class="btn">START YOUR JOURNEY ↗</a>
 
     </section>
 
 
-    <!-- PRICING SECTION -->
+    <!-- PRICING -->
 
     <section class="pricing section" id="pricing">
 
         <div class="section-heading">
-
             <p class="subtitle">MEMBERSHIP PLANS</p>
 
-            <h2>
-                INVEST IN <span>YOURSELF.</span>
-            </h2>
+            <h2>INVEST IN <span>YOURSELF.</span></h2>
 
             <p>Choose a plan that suits your fitness journey.</p>
-
         </div>
-
 
         <div class="pricing-container">
 
             <div class="price-card">
-
                 <h3>Basic</h3>
-
                 <h2>₹999<span>/month</span></h2>
 
                 <p>✓ Gym Access</p>
                 <p>✓ Standard Equipment</p>
                 <p>✓ Flexible Workouts</p>
 
-                <a href="#contact" class="btn btn-outline">
-                    Choose Plan
-                </a>
-
+                <a href="#contact" class="btn btn-outline">CHOOSE PLAN</a>
             </div>
 
-
             <div class="price-card popular">
-
                 <span class="popular-tag">MOST POPULAR</span>
 
                 <h3>Pro</h3>
-
                 <h2>₹1,499<span>/month</span></h2>
 
                 <p>✓ Full Gym Access</p>
                 <p>✓ Group Training Sessions</p>
                 <p>✓ Fitness Guidance</p>
 
-                <a href="#contact" class="btn">
-                    Choose Plan
-                </a>
-
+                <a href="#contact" class="btn">CHOOSE PLAN</a>
             </div>
 
-
             <div class="price-card">
-
                 <h3>Elite</h3>
-
                 <h2>₹2,499<span>/month</span></h2>
 
                 <p>✓ Full Gym Access</p>
                 <p>✓ Personal Training Guidance</p>
                 <p>✓ Progress Reviews</p>
 
-                <a href="#contact" class="btn btn-outline">
-                    Choose Plan
-                </a>
-
+                <a href="#contact" class="btn btn-outline">CHOOSE PLAN</a>
             </div>
 
         </div>
 
         <p class="price-note">
-            * Sample pricing only. Replace with your actual membership fees.
+            * Sample pricing only. Update with your actual membership fees.
         </p>
 
     </section>
 
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
 
     <section class="contact section" id="contact">
 
         <div class="section-heading">
-
             <p class="subtitle">GET IN TOUCH</p>
 
-            <h2>
-                READY TO <span>LEVEL UP?</span>
-            </h2>
+            <h2>READY TO <span>LEVEL UP?</span></h2>
 
-            <p>
-                Contact us to learn more about our membership plans.
-            </p>
-
+            <p>Contact us to learn more about our membership plans.</p>
         </div>
 
         <form class="contact-form" action="#" method="get">
@@ -359,13 +834,11 @@
                 aria-label="Your Email"
                 required>
 
-            <select name="plan" aria-label="Select a plan">
-
+            <select name="plan" aria-label="Select a membership plan">
                 <option value="">Select Membership Plan</option>
                 <option value="basic">Basic</option>
                 <option value="pro">Pro</option>
                 <option value="elite">Elite</option>
-
             </select>
 
             <textarea
@@ -374,9 +847,7 @@
                 aria-label="Your Message"
                 rows="5"></textarea>
 
-            <button type="submit" class="btn">
-                Send Enquiry ↗
-            </button>
+            <button type="submit" class="btn">SEND ENQUIRY ↗</button>
 
         </form>
 
@@ -385,15 +856,11 @@
 
     <!-- FOOTER -->
 
-    <footer class="footer">
+    <footer>
 
-        <a href="#home" class="logo">
-            IRON<span>CORE.</span>
-        </a>
+        <a href="#home" class="logo">IRON<span>CORE.</span></a>
 
-        <p>
-            Forge your future. Build your strength.
-        </p>
+        <p>Forge your future. Build your strength.</p>
 
         <div class="footer-links">
             <a href="#home">Home</a>
