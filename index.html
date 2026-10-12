@@ -1,99 +1,413 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GYM WEBSITE</title>
+    <title>IRONCORE | Premium Fitness</title>
 
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Header Section -->
+    <!-- HEADER -->
+
     <header class="header">
 
-        <!-- Logo and Website Name -->
-        <div class="left">
-            <img
-                src="../static/images/bodybuilder-male-figure-icon-gym-logo-template-athletic-man-sign-white-silhouette-on-black-background-illustration-vector.webp"
-                alt="Gym Logo"
-                class="logo">
+        <a href="#" class="logo">
+            IRON<span>CORE.</span>
+        </a>
 
-            <div>Fitness &amp; Wellness</div>
-        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-        <!-- Navigation Menu -->
-        <div class="mid">
-            <ul class="navbar">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </div>
-
-        <!-- Buttons -->
-        <div class="right">
-            <button class="btn" type="button">Contact Us</button>
-            <button class="btn" type="button">Call Us</button>
-        </div>
+        <a href="#pricing" class="btn">Join Now ↗</a>
 
     </header>
 
-    <!-- Registration Section -->
-    <section class="container">
 
-        <h1>Join Our Fitness Goals</h1>
+    <!-- HOME SECTION -->
 
-        <form action="#" method="post">
+    <section class="home" id="home">
 
-            <div class="form-group">
-                <input type="text" name="name"
-                    placeholder="Enter your name" required>
+        <div class="home-content">
+
+            <p class="subtitle">NO EXCUSES. JUST RESULTS.</p>
+
+            <h1>
+                BUILD YOUR<br>
+                OWN <span>LEGACY.</span>
+            </h1>
+
+            <p class="description">
+                Transform your body, build your strength,
+                and become the best version of yourself.
+                Your fitness journey starts here.
+            </p>
+
+            <div class="home-buttons">
+                <a href="#programs" class="btn">Explore Programs ↗</a>
+
+                <a href="#about" class="btn btn-outline">
+                    Discover More
+                </a>
             </div>
 
-            <div class="form-group">
-                <input type="email" name="email"
-                    placeholder="Enter your email" required>
+            <div class="stats">
+
+                <div>
+                    <h2>500<span>+</span></h2>
+                    <p>Happy Members</p>
+                </div>
+
+                <div>
+                    <h2>15<span>+</span></h2>
+                    <p>Expert Trainers</p>
+                </div>
+
+                <div>
+                    <h2>10<span>+</span></h2>
+                    <p>Years Experience</p>
+                </div>
+
             </div>
 
-            <div class="form-group">
-                <input type="tel" name="phone"
-                    placeholder="Enter your phone number" required>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about section" id="about">
+
+        <div class="about-image"></div>
+
+        <div class="about-content">
+
+            <p class="subtitle">ABOUT OUR GYM</p>
+
+            <h2>
+                PUSH YOUR LIMITS.<br>
+                <span>BREAK YOUR BARRIERS.</span>
+            </h2>
+
+            <p>
+                IRONCORE is more than just a gym.
+                It is a place where dedication meets discipline.
+                We help beginners and experienced athletes
+                work towards their fitness goals.
+            </p>
+
+            <div class="features">
+
+                <div>✓ Professional Trainers</div>
+                <div>✓ Modern Equipment</div>
+                <div>✓ Personal Workout Plans</div>
+                <div>✓ Friendly Environment</div>
+
             </div>
 
-            <div class="form-group">
-                <select name="gender" required>
-                    <option value="">Select your gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
+            <a href="#contact" class="btn">Know More ↗</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRAMS SECTION -->
+
+    <section class="programs section" id="programs">
+
+        <div class="section-heading">
+
+            <p class="subtitle">OUR PROGRAMS</p>
+
+            <h2>
+                FIND YOUR <span>STRENGTH.</span>
+            </h2>
+
+            <p>
+                Choose your program and start your fitness journey.
+            </p>
+
+        </div>
+
+
+        <div class="program-container">
+
+            <div class="program-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80"
+                alt="Weight training">
+
+                <div class="card-content">
+
+                    <span>01 / STRENGTH</span>
+
+                    <h3>Weight Training</h3>
+
+                    <p>
+                        Build strength and improve your fitness
+                        with guided weight training.
+                    </p>
+
+                    <a href="#contact">Explore Program ↗</a>
+
+                </div>
+
             </div>
 
-            <div class="form-group">
-                <input type="number" name="age"
-                    placeholder="Enter your age"
-                    min="13" max="100" required>
+
+            <div class="program-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=700&q=80"
+                alt="Cardio workout">
+
+                <div class="card-content">
+
+                    <span>02 / ENDURANCE</span>
+
+                    <h3>Cardio Training</h3>
+
+                    <p>
+                        Improve stamina and support your
+                        overall health with cardio workouts.
+                    </p>
+
+                    <a href="#contact">Explore Program ↗</a>
+
+                </div>
+
             </div>
 
-            <div class="form-group">
-                <textarea name="address"
-                    placeholder="Enter your address"
-                    rows="3" required></textarea>
+
+            <div class="program-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80"
+                alt="Functional fitness">
+
+                <div class="card-content">
+
+                    <span>03 / MOVEMENT</span>
+
+                    <h3>Functional Fitness</h3>
+
+                    <p>
+                        Improve balance, mobility and
+                        everyday movement.
+                    </p>
+
+                    <a href="#contact">Explore Program ↗</a>
+
+                </div>
+
             </div>
 
-            <button class="btn" type="submit">Submit</button>
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+
+    <section class="cta">
+
+        <p class="subtitle">YOUR TIME IS NOW</p>
+
+        <h2>
+            DON'T WISH FOR IT.<br>
+            <span>WORK FOR IT.</span>
+        </h2>
+
+        <p>
+            Start today. Stay consistent. See your progress.
+        </p>
+
+        <a href="#pricing" class="btn">Start Your Journey ↗</a>
+
+    </section>
+
+
+    <!-- PRICING SECTION -->
+
+    <section class="pricing section" id="pricing">
+
+        <div class="section-heading">
+
+            <p class="subtitle">MEMBERSHIP PLANS</p>
+
+            <h2>
+                INVEST IN <span>YOURSELF.</span>
+            </h2>
+
+            <p>Choose a plan that suits your fitness journey.</p>
+
+        </div>
+
+
+        <div class="pricing-container">
+
+            <div class="price-card">
+
+                <h3>Basic</h3>
+
+                <h2>₹999<span>/month</span></h2>
+
+                <p>✓ Gym Access</p>
+                <p>✓ Standard Equipment</p>
+                <p>✓ Flexible Workouts</p>
+
+                <a href="#contact" class="btn btn-outline">
+                    Choose Plan
+                </a>
+
+            </div>
+
+
+            <div class="price-card popular">
+
+                <span class="popular-tag">MOST POPULAR</span>
+
+                <h3>Pro</h3>
+
+                <h2>₹1,499<span>/month</span></h2>
+
+                <p>✓ Full Gym Access</p>
+                <p>✓ Group Training Sessions</p>
+                <p>✓ Fitness Guidance</p>
+
+                <a href="#contact" class="btn">
+                    Choose Plan
+                </a>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>Elite</h3>
+
+                <h2>₹2,499<span>/month</span></h2>
+
+                <p>✓ Full Gym Access</p>
+                <p>✓ Personal Training Guidance</p>
+                <p>✓ Progress Reviews</p>
+
+                <a href="#contact" class="btn btn-outline">
+                    Choose Plan
+                </a>
+
+            </div>
+
+        </div>
+
+        <p class="price-note">
+            * Sample pricing only. Replace with your actual membership fees.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact section" id="contact">
+
+        <div class="section-heading">
+
+            <p class="subtitle">GET IN TOUCH</p>
+
+            <h2>
+                READY TO <span>LEVEL UP?</span>
+            </h2>
+
+            <p>
+                Contact us to learn more about our membership plans.
+            </p>
+
+        </div>
+
+        <form class="contact-form" action="#" method="get">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                aria-label="Your Name"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                aria-label="Your Email"
+                required>
+
+            <select name="plan" aria-label="Select a plan">
+
+                <option value="">Select Membership Plan</option>
+                <option value="basic">Basic</option>
+                <option value="pro">Pro</option>
+                <option value="elite">Elite</option>
+
+            </select>
+
+            <textarea
+                name="message"
+                placeholder="Your Message"
+                aria-label="Your Message"
+                rows="5"></textarea>
+
+            <button type="submit" class="btn">
+                Send Enquiry ↗
+            </button>
 
         </form>
 
     </section>
 
-</body>
 
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <a href="#home" class="logo">
+            IRON<span>CORE.</span>
+        </a>
+
+        <p>
+            Forge your future. Build your strength.
+        </p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#programs">Programs</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 IRONCORE Gym. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
 </html>
 ```
